@@ -3,6 +3,14 @@ const ctx = canva.getContext("2d");
 window.onload = function(){
 const img = document.getElementById("peeimg");
 ctx.drawImage(img,50,10,600,500);
+ran_numr = (Math.floor(Math.random() * 5 + 2)) / 1000;
+ran_numo = (Math.floor(Math.random() * 5 + 2)) / 1000;
+ran_numg = (Math.floor(Math.random() * 5 + 2)) / 1000;
+ran_numb = (Math.floor(Math.random() * 6)) / 1000;
+ranb = 0.68 + ran_numb;
+ranr = 0.13 + ran_numr;
+rano = 0.42 + ran_numo;
+rang = 0.43 + ran_numg;
 }
 
 function voltage(){
@@ -108,10 +116,10 @@ function graph() {
 function allcolourgraph(){
     document.getElementById("graph").src = "tabs/images/graph2.png";
     document.getElementById("workfun").innerHTML = "0.93";
-    document.getElementById("spr").innerHTML = "0.134";
-    document.getElementById("spo").innerHTML = "0.424";
-    document.getElementById("spg").innerHTML = "0.438";
-    document.getElementById("spb").innerHTML = "0.680";
+    document.getElementById("spr").innerHTML = ranr;
+    document.getElementById("spo").innerHTML = rano;
+    document.getElementById("spg").innerHTML = rang;
+    document.getElementById("spb").innerHTML = ranb;
 }
 
 function normalgraph() {
@@ -122,6 +130,7 @@ function zeroreading(){
     document.getElementById("Voltage").value = "0";
     document.getElementById("Voltage").style.color = "black";
     document.getElementById("phcr").innerHTML = "";
+    document.getElementById("Voltage").style.fontWeight = "lighter";
 }
 function callingvalues(){
     x = document.querySelector("#select").value;
@@ -146,24 +155,30 @@ function testing(){
 function redvalue() {
     readin = document.getElementById("Voltage").value;
     if (readin === "0.13"){
-        document.getElementById("spr").innerHTML = "0.134";
+        document.getElementById("spr").innerHTML = ranr;
     }    
 }
 function orangevalue(){
     readin = document.getElementById("Voltage").value;
     if (readin === "0.42") {
-        document.getElementById("spo").innerHTML = "0.424";
+        document.getElementById("spo").innerHTML = rano;
     }
 }
 function greenvalue(){
     readin = document.getElementById("Voltage").value;
     if (readin === "0.43") {
-        document.getElementById("spg").innerHTML = "0.438";
+        document.getElementById("spg").innerHTML = rang;
     }
 }
 function bluevalue(){
     readin = document.getElementById("Voltage").value;
     if (readin === "0.68") {
-        bluesp = document.getElementById("spb").innerHTML = "0.680";
+        bluesp = document.getElementById("spb").innerHTML = ranb;
     }
 }
+
+//To generate random numbers with in range
+// function randomNumber() {
+//     ran_num = Math.floor(Math.random() * 5 + 2);
+//     ranr = 0.13 + (ran_num/1000);
+// }
